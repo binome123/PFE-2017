@@ -10,11 +10,13 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.user;
 
 /**
@@ -32,17 +34,35 @@ public class verif extends HttpServlet {
          String username = request.getParameter("username");
        String password = request.getParameter("password");
     user u=new user(username, password);
-    System.out.print(username+" "+password);
+    
+  
     int a=0;
      a =gestionuser.verif(u);
+     String t ="";
      
         if (a==1){
+            HttpSession s=request.getSession();
+            t="Programmeur";
+               s.setAttribute("user",username);
+               s.setAttribute("type",t);
+           
+            
             response.sendRedirect("./programmer/programmer.jsp");
         }
         if (a==2){
+             t="Partenaire";
+             HttpSession s=request.getSession();
+            
+               s.setAttribute("user",username);
+                s.setAttribute("type",t);
             response.sendRedirect("./partener/partener.jsp");
         }
         if (a==3){
+               HttpSession s=request.getSession();
+            t="Administrateur";
+               s.setAttribute("user",username);
+                s.setAttribute("type",t);
+               
             response.sendRedirect("./admin/admin.jsp");
         }
          if (a==0){

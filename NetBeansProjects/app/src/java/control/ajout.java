@@ -20,7 +20,8 @@ import model.user;
  * Servlet implementation class UserDataServlet
  */
 public class ajout extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
             
@@ -28,7 +29,7 @@ public class ajout extends HttpServlet {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-                String password2 = request.getParameter("password2");
+                
 	        String type=request.getParameter("o");
                 System.out.print(username+" "+name+" "+email+" "+password+" "+type);
                   String d="0";
@@ -46,9 +47,9 @@ public class ajout extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(ajout.class.getName()).log(Level.SEVERE, null, ex);
             }
-		response.sendRedirect("index.jsp");
+		if("1".equals(d)){response.sendRedirect("./programmer/programmer.jsp");}
+                if("1".equals(p)){response.sendRedirect("./partener/partener.jsp");}
+                
 			
 		}
                 }
-	
-

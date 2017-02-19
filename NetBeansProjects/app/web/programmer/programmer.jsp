@@ -1,396 +1,470 @@
 <%-- 
     Document   : index
-    Created on : Dec 3, 2016, 11:57:34 PM
-    Author     : saifr_000
+    Created on : 22 janv. 2017, 20:43:47
+    Author     : SAIF
 --%>
 
+<%@page import="util.Conx"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, maximum-scale=1">
+<!DOCTYPE html>
 
-<title>Homepage</title>
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
+<html> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Jonaki | Job Board Template</title>
+        <meta name="description" content="company is a free job board template">
+        <meta name="author" content="Ohidul">
+        <meta name="keyword" content="html, css, bootstrap, job-board">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href="css/responsive.css" rel="stylesheet" type="text/css">
-<link href="css/animate.css" rel="stylesheet" type="text/css">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-<!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/fontello.css">
+        <link rel="stylesheet" href="../css/animate.css">        
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/owl.carousel.css">
+        <link rel="stylesheet" href="../css/owl.theme.css">
+        <link rel="stylesheet" href="../css/owl.transitions.css">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../responsive.css">
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
 
-<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/jquery.isotope.js"></script>
-<script type="text/javascript" src="js/wow.js"></script>
-<script type="text/javascript" src="js/classie.js"></script>
-<script src="contactform/contactform.js"></script>
-
-<!-- =======================================================
-    Theme Name: Knight
-    Theme URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
-    Author: BootstrapMade
-    Author URL: https://bootstrapmade.com
-======================================================= -->
-
-</head>
-<body>
-
-<header class="header" id="header"><!--header-start-->
-	<div class="container">
-    	<figure class="logo animated fadeInDown delay-07s">
-        	<a href="#"><img src="img/logo.png" alt=""></a>	
-        </figure>	
-        <h1 class="animated fadeInDown delay-07s">Bienvenue au site web JOB </h1>
-        <ul class="we-create animated fadeInUp delay-1s">
-        	<li>Espace Programmeur</li>
-       </ul>
-          
-
-    </div>
-     
-        
-</header><!--header-end-->
-<nav class="main-nav-outer" id="test"><!--main-nav-start-->
-	<div class="container">
-        <ul class="main-nav">
-        	<li><a href="#header">Home</a></li>
-            <li><a href="#service">Services</a></li>
-            <li><a href="#Portfolio">Portfolio</a></li>
-            <li class="small-logo"><a href="#header"><img src="img/small-logo.png" alt=""></a></li>
-            <li><a href="#client">Clients</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-    </div>
-</nav><!--main-nav-end-->
-
-
-
-
-<section class="main-section" id="service"><!--main-section-start-->
-	<div class="container">
-    	<h2>Services</h2>
-    	<h6>We offer exceptional service with complimentary hugs.</h6>
-        <div class="row">
-        	<div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
-            	<div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-paw"></i>
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <!-- Body content -->
+		
+        <div class="header-connect">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-8 col-xs-8">
+                        <div class="header-half header-call">
+                            <p>
+                                <span><i class="icon-cloud"></i>+019 4854 8817</span>
+                                <span><i class="icon-mail"></i>ohidul.islam951@gmail.com</span>
+                            </p>
+                        </div>
                     </div>
-                	<div class="service-list-col2">
-                        <h3>branding &amp; identity</h3>
-                        <p>Proin iaculis purus digni consequat sem digni ssim. Donec entum digni ssim.</p>
-                    </div>
-                </div>
-                <div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-gear"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>web development</h3>
-                        <p>Proin iaculis purus consequat sem digni ssim. Digni ssim porttitora .</p>
-                    </div>
-                </div>
-                <div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-apple"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>mobile design</h3>
-                        <p>Proin iaculis purus consequat digni sem digni ssim. Purus donec porttitora entum.</p>
-                    </div>
-                </div>
-                <div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-medkit"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>24/7 Support</h3>
-                        <p>Proin iaculis purus consequat sem digni ssim. Sem porttitora entum.</p>
+                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-3  col-xs-offset-1">
+                        <div class="header-half header-social">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vine"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-        
         </div>
-	</div>
-</section><!--main-section-end-->
+
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="../img/logo_1.png" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+         <% HttpSession s=request.getSession();
+ String us=(String)s.getAttribute("user");
+ String tp=(String)s.getAttribute("type");
+ String sql="select * from user where username ='"+us+"'";
+ ResultSet rs=Conx.getConnexion().createStatement().executeQuery(sql);
+ 
+ String img="";
+ 
+ while(rs.next()){
+ 
+
+ img=rs.getString(10);
+ }
+ %>
+ 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <div class="button navbar-right">
+                   <div class="button navbar-right">
+                <!--********************************************** -->
+                
+ <div class="btn-group" >
+  <a class="btn btn-default" href="#"><img src="../profile_img/<%=img%>" width="40" height="40"></a>  
+  <a class="btn btn-default" href="#" ><i class="fa fa-user fa-fw"></i><%=us%> </a>
+  <a class="btn btn-default dropdown-toggle"  data-toggle="dropdown"  href="#">
+    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+  </a>
+  <ul class="dropdown-menu" >
+        <li>&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-flag"></i>&nbsp;&nbsp;<%=tp%> </li> 
+        <li class="divider"></li>  
+        <li> <a href="./moncv.jsp"><i class="fa fa-cog"></i>&nbsp;&nbsp; Mon CV</a> </li> 
+	<li> <a href="./profile_prog.jsp"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> </li> 
+	<li class="divider"></li>
+	<li> <a href="../destroy"><i class="fa fa-sign-out"></i>&nbsp;&nbsp; Logout</a> </li>
+  </ul>
+ </div> 
+                <!--********************************************** -->              </div>
+              <ul class="main-nav nav navbar-nav navbar-right">
+                <li class="wow fadeInDown" data-wow-delay="0s"><a class="active" href="./programmer.jsp">Acceuil</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.1s"><a href="./les_cv.jsp">Programmeurs</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="./les_offres.jsp">Offres</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="#">A propos</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="#">Blog</a></li>
+                <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="#">Contact</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="slider-area">
+            <div class="slider">
+                <div id="bg-slider" class="owl-carousel owl-theme">
+                 
+                  <div class="item"><img src="../img/slider-image-3.jpg" alt="Mirror Edge"></div>
+                  <div class="item"><img src="../img/slider-image-2.jpg" alt="The Last of us"></div>
+                  <div class="item"><img src="../img/slider-image-1.jpg" alt="GTA V"></div>
+                 
+                </div>
+            </div>
+            <div class="container slider-content">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                        <h2>Job Searching Just Got So Easy</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi deserunt deleniti, ullam commodi sit ipsam laboriosam velit adipisci quibusdam aliquam teneturo!</p>
+                        <div class="search-form wow pulse" data-wow-delay="0.8s">
+                            <form action="" class=" form-inline">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Job Key Word">
+                                </div>
+                                <div class="form-group">
+                                    <select name="" id="" class="form-control">
+                                        <option>Select Your City</option>
+                                        <option selected>New york, CA</option>
+                                        <option>New york, CA</option>
+                                        <option>New york, CA</option>
+                                        <option>New york, CA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="" id="" class="form-control">
+                                        <option>Select Your Category</option>
+                                        <option selected>Graphic Design</option>
+                                        <option>Web Design</option>
+                                        <option>App Design</option>
+                                    </select>
+                                </div>
+                                <input type="submit" class="btn" value="Search">
 
 
-
-<section class="main-section alabaster"><!--main-section alabaster-start-->
-	<div class="container">
-    	<div class="row">
-			<figure class="col-lg-5 col-sm-4 wow fadeInLeft">
-            	<img  src="img/iphone.png" alt="">
-            </figure>
-        	<div class="col-lg-7 col-sm-8 featured-work">
-            	<h2>featured work</h2>
-            	<P class="padding-b">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit.</P>
-            	<div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-02s">
-                    	<i class="fa-magic"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-02s">
-                        <h3>magic of theme development</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
-                    </div>    
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-04s">
-                    	<i class="fa-gift"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-04s">
-                        <h3>neatly packaged</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
-                    </div>    
-                </div>
-                <div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-06s">
-                    	<i class="fa-dashboard"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-06s">
-                        <h3>SEO optimized</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
-                    </div>    
-                </div>
-                <a class="Learn-More" href="#">Learn More</a>
             </div>
         </div>
-	</div>
-</section><!--main-section alabaster-end-->
 
-
-
-<section class="main-section paddind" id="Portfolio"><!--main-section-start-->
-	<div class="container">
-    	<h2>Portfolio</h2>
-    	<h6>Fresh portfolio of designs that will keep you wanting more.</h6>
-      <div class="portfolioFilter">  
-        <ul class="Portfolio-nav wow fadeIn delay-02s">
-        	<li><a href="#" data-filter="*" class="current" >All</a></li>
-            <li><a href="#" data-filter=".branding" >Branding</a></li>
-            <li><a href="#" data-filter=".webdesign" >Web design</a></li>
-            <li><a href="#" data-filter=".printdesign" >Print design</a></li>
-            <li><a href="#" data-filter=".photography" >Photography</a></li>
-        </ul>
-       </div> 
-        
-	</div>
-    <div class="portfolioContainer wow fadeInUp delay-04s">
-            	<div class=" Portfolio-box printdesign">
-                	<a href="#"><img src="img/Portfolio-pic1.jpg" alt=""></a>	
-                	<h3>Foto Album</h3>
-                    <p>Print Design</p>
+        <div class="content-area">
+            <div class="container">
+                <div class="row page-title text-center wow zoomInDown" data-wow-delay="1s">
+                    <h5>Our Process</h5>
+                    <h2>How we work for you?</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae illum dolorem, rem officia, id explicabo sapiente</p>
                 </div>
-                <div class="Portfolio-box webdesign">
-                	<a href="#"><img src="img/Portfolio-pic2.jpg" alt=""></a>	
-                	<h3>Luca Theme</h3>
-                    <p>Web Design</p>
+                <div class="row how-it-work text-center">
+                    <div class="col-md-4">
+                        <div class="single-work wow fadeInUp" data-wow-delay="0.8s">
+                            <img src="../img/how-work1.png" alt="">
+                            <h3>Searching for the best job</h3>
+                            <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-work  wow fadeInUp"  data-wow-delay="0.9s">
+                            <img src="../img/how-work2.png" alt="">
+                            <h3>Searching for the best job</h3>
+                            <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-work wow fadeInUp"  data-wow-delay="1s">
+                            <img src="../img/how-work3.png" alt="">
+                            <h3>Searching for the best job</h3>
+                            <p>Using the outcomes from the job, we will put together a plan for the most effective marketing strategy to get the best results.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class=" Portfolio-box branding">
-                	<a href="#"><img src="img/Portfolio-pic3.jpg" alt=""></a>	
-                	<h3>Uni Sans</h3>
-                    <p>Branding</p>
-                </div>
-                <div class=" Portfolio-box photography" >
-                	<a href="#"><img src="img/Portfolio-pic4.jpg" alt=""></a>	
-                	<h3>Vinyl Record</h3>
-                    <p>Photography</p>
-                </div>
-                <div class=" Portfolio-box branding">
-                	<a href="#"><img src="img/Portfolio-pic5.jpg" alt=""></a>	
-                	<h3>Hipster</h3>
-                    <p>Branding</p>
-                </div>
-                <div class=" Portfolio-box photography">
-                	<a href="#"><img src="img/Portfolio-pic6.jpg" alt=""></a>	
-                	<h3>Windmills</h3>
-                    <p>Photography</p>
-                </div>
-    </div>
-</section><!--main-section-end-->
-
-
-<section class="main-section client-part" id="client"><!--main-section client-part-start-->
-	<div class="container">
-		<b class="quote-right wow fadeInDown delay-03"><i class="fa-quote-right"></i></b>
-    	<div class="row">
-        	<div class="col-lg-12">
-            	<p class="client-part-haead wow fadeInDown delay-05">It was a pleasure to work with the guys at Knight Studio. They made sure 
-we were well fed and drunk all the time!</p>
             </div>
-        </div>
-    	<ul class="client wow fadeIn delay-05s">
-        	<li><a href="#">
-            	<img src="img/client-pic1.jpg" alt="">
-                <h3>James Bond</h3>
-                <span>License To Drink Inc.</span>
-            </a></li>
-        </ul>
-    </div>
-</section><!--main-section client-part-end-->
-<div class="c-logo-part"><!--c-logo-part-start-->
-	<div class="container">
-    	<ul>
-        	<li><a href="#"><img src="img/c-liogo1.png" alt=""></a></li>
-            <li><a href="#"><img src="img/c-liogo2.png" alt=""></a></li>
-            <li><a href="#"><img src="img/c-liogo3.png" alt=""></a></li>
-            <li><a href="#"><img src="img/c-liogo4.png" alt=""></a></li>
-            <li><a href="#"><img src="img/c-liogo5.png" alt=""></a></li>
-    	</ul>
-	</div>
-</div><!--c-logo-part-end-->
-<section class="main-section team" id="team"><!--main-section team-start-->
-	<div class="container">
-        <h2>team</h2>
-        <h6>Take a closer look into our amazing team. We won’t bite.</h6>
-        <div class="team-leader-block clearfix">
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-03s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="img/team-leader-pic1.jpg" alt="">
+            <hr>
+
+            <div class="container">
+                <div class="row job-posting wow fadeInUp" data-wow-delay="1s">
+                    <div role="tabpanel">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#job-seekers" aria-controls="home" role="tab" data-toggle="tab">Job Seekers</a></li>
+                        <li role="presentation"><a href="#employeers" aria-controls="profile" role="tab" data-toggle="tab">Employeers</a></li>
+                      </ul>
+
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="job-seekers">
+                            <ul class="list-inline job-seeker">
+                                <li>
+                                    <a href="">
+                                        <img src="../img/team-small-5.jpg" alt="">
+                                        <div class="overlay"><h3>Ohidul Islam</h3><p>Web Designer</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/team-small-6.jpg" alt="">
+                                        <div class="overlay"><h3>Mohidul Islam</h3><p>CEO</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/team-small-3.jpg" alt="">
+                                        <div class="overlay"><h3>Unknown girl</h3><p>Graphic Designer</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="img/team-small-4.jpg" alt="">
+                                        <div class="overlay"><h3>Eftakher Alam</h3><p>Graphic Designer</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/team-small-2.jpg" alt="">
+                                        <div class="overlay"><h3>Mark Otto</h3><p>Founder</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/team-small-1.jpg" alt="">
+                                        <div class="overlay"><h3>Rasel Ahmed</h3><p>Web Developer</p></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="employeers">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="">
+                                        <img src="../img/employee4.png" alt="">
+                                        <div class="overlay"><h3>Instagram</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/employee5.png" alt="">
+                                        <div class="overlay"><h3>Microsoft</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/employee6.png" alt="">
+                                        <div class="overlay"><h3>Dribbble</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/employee1.png" alt="">
+                                        <div class="overlay"><h3>Beats Music</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/employee2.png" alt="">
+                                        <div class="overlay"><h3>Facebook</h3></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="../img/employee3.png" alt="">
+                                        <div class="overlay"><h3>Twitter</h3></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="container">
+                <div class="row page-title text-center wow bounce"  data-wow-delay="1s">
+                    <h5>Recent Jobs</h5>
+                    <h2><span>54716</span> Available jobs for you</h2>
+                </div>
+                <!-- ******************************** -->
+                <%String sqlo="select * from offres where etat=1 and stage=0"; 
+                ResultSet rs2=Conx.getConnexion().createStatement().executeQuery(sqlo);
+                %>
+                <!-- ******************************** -->
+                <div class="row jobs">
+                    <div class="col-md-12">
+                        <div class="job-posts table-responsive">
+                            <table class="table"><%while(rs2.next()){%>
+                                <tr class="odd wow fadeInUp" data-wow-delay="1s">
+                                    <td class="tbl-logo"><img src="../partener/profile_img/<%=img%>" alt=""></td>
+                                    <td class="tbl-title"><h4><%out.print(rs2.getString(5));%><br><span class="job-type">full time</span></h4></td>
+                                    <td><b><%out.print(rs2.getString(2));%></b></td>
+                                    <td><b><%out.print(rs2.getString(3));%></b></td>
+                                    <td><b><%out.print(rs2.getString(6)+" Dt - "+rs2.getString(7)+" Dt");%></b></td>
+                                    <td class="tbl-apply"><a href="#">Details </a></td><%};%>
+                                </tr>
+                               
+                            </table>
+                        </div>
+                       
+                        
+						  <ul class="pagination pagination-lg">
+							<li><a href="#" aria-label="Previous"><i class="fa fa-angle-left"></i></a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a></li>
+						  </ul>
+						 
+                    </div>
                    
                 </div>
-                <h3 class="wow fadeInDown delay-03s">Walter White</h3>
-                <span class="wow fadeInDown delay-03s">Chief Executive Officer</span>
-                <p class="wow fadeInDown delay-03s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
             </div>
-            <div class="team-leader-box">
-                <div class="team-leader  wow fadeInDown delay-06s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="img/team-leader-pic2.jpg" alt="">
-                  
+            <hr>
+
+            <div class="container">
+                <div class="row page-title text-center  wow bounce"  data-wow-delay=".7s">
+                    <h5>TESTIMONIALS</h5>
+                    <h2>WHAT PEOPLES ARE SAYING</h2>
                 </div>
-                <h3 class="wow fadeInDown delay-06s">Jesse Pinkman</h3>
-                <span class="wow fadeInDown delay-06s">Product Manager</span>
-                <p class="wow fadeInDown delay-06s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+                <div class="row testimonial">
+                    <div class="col-md-12">
+                        <div id="testimonial-slider">
+                            <div class="item">
+                                <div class="client-text">                                
+                                    <p>Jobify offer an amazing service and I couldn’t be happier! They 
+                                    are dedicated to helping recruiters find great candidates, wonderful service!</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
+                                    <img src="../img/client-face1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="client-text">                                
+                                    <p>Jobify offer an amazing service and I couldn’t be happier! They 
+                                    are dedicated to helping recruiters find great candidates, wonderful service!</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face">
+                                    <img src="../img/client-face2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="client-text">                                
+                                    <p>Jobify offer an amazing service and I couldn’t be happier! They 
+                                    are dedicated to helping recruiters find great candidates, wonderful service!</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face">
+                                    <img src="../img/client-face1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="client-text">                                
+                                    <p>Jobify offer an amazing service and I couldn’t be happier! They 
+                                    are dedicated to helping recruiters find great candidates, wonderful service!</p>
+                                    <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                                </div>
+                                <div class="client-face">
+                                    <img src="../img/client-face2.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-09s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="img/team-leader-pic3.jpg" alt="">
-                  
+
+        </div>
+        <div class="footer-area">
+            <div class="container">
+                <div class="row footer">
+                    <div class="col-md-4">
+                        <div class="single-footer">
+                            <img src="../img/logo_1.png" alt="" class="wow pulse" data-wow-delay="1s">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati architecto quaerat facere blanditiis tempora sequi nulla accusamus, possimus cum necessitatibus suscipit quia autem mollitia, similique quisquam molestias. Vel unde, blanditiis.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-footer">
+                            <h4>Twitter update</h4>
+                            <div class="twitter-updates">
+                                <div class="single-tweets">
+                                    <h5>ABOUT 9 HOURS</h5>
+                                    <p><strong>AGOMeet Aldous</strong> - a Brave New World for #rails with more cohesion, less coupling and greater dev speed <a href="http://t.co/rsekglotzs">http://t.co/rsekglotzs</a></p>
+                                </div>
+                                <div class="single-tweets">
+                                    <h5>ABOUT 9 HOURS</h5>
+                                    <p><strong>AGOMeet Aldous</strong> - a Brave New World for #rails with more cohesion, less coupling and greater dev speed <a href="http://t.co/rsekglotzs">http://t.co/rsekglotzs</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="single-footer">
+                            <h4>Useful lnks</h4>
+                            <div class="footer-links">
+                                <ul class="list-unstyled">
+                                    <li><a href="">About Us</a></li>
+                                    <li><a href="" class="active">Services</a></li>
+                                    <li><a href="">Work</a></li>
+                                    <li><a href="">Our Blog</a></li>
+                                    <li><a href="">Customers Testimonials</a></li>
+                                    <li><a href="">Affliate</a></li>
+                                    <li><a href="">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
-                <span class="wow fadeInDown delay-09s">Accountant</span>
-                <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+                <div class="row footer-copy">
+                    <p><span>(C) webstie, All rights reserved</span> | <span>Graphic Designed by <a href="https://dribbble.com/siblu">Eftakher Alam</a></span> | <span> Web Designed by <a href="http://ohidul.me">Ohidul Islam</a></span> </p>
+                </div>
             </div>
         </div>
-    </div>
-</section><!--main-section team-end-->
-
-
-
-<section class="business-talking"><!--business-talking-start-->
-	<div class="container">
-        <h2>Let’s Talk Business.</h2>
-    </div>
-</section><!--business-talking-end-->
-
-
-
-
-<script type="text/javascript">
-    $(document).ready(function(e) {
-        $('#test').scrollToFixed();
-        $('.res-nav_click').click(function(){
-            $('.main-nav').slideToggle();
-            return false    
-            
-        });
-        
-    });
-</script>
-
-  <script>
-    wow = new WOW(
-      {
-        animateClass: 'animated',
-        offset:       100
-      }
-    );
-    wow.init();
-  </script>
-
-
-<script type="text/javascript">
-	$(window).load(function(){
+        	
 		
-		$('.main-nav li a').bind('click',function(event){
-			var $anchor = $(this);
-			
-			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top - 102
-			}, 1500,'easeInOutExpo');
-			/*
-			if you don't want to use the easing effects:
-			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top
-			}, 1000);
-			*/
-			event.preventDefault();
-		});
-	})
-</script>
-
-<script type="text/javascript">
-
-$(window).load(function(){
-  
-  
-  var $container = $('.portfolioContainer'),
-      $body = $('body'),
-      colW = 375,
-      columns = null;
-
-  
-  $container.isotope({
-    // disable window resizing
-    resizable: true,
-    masonry: {
-      columnWidth: colW
-    }
-  });
-  
-  $(window).smartresize(function(){
-    // check if columns has changed
-    var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
-    if ( currentColumns !== columns ) {
-      // set new column count
-      columns = currentColumns;
-      // apply width to container manually, then trigger relayout
-      $container.width( columns * colW )
-        .isotope('reLayout');
-    }
-    
-  }).smartresize(); // trigger resize to set container width
-  $('.portfolioFilter a').click(function(){
-        $('.portfolioFilter .current').removeClass('current');
-        $(this).addClass('current');
- 
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-			
-            filter: selector,
-         });
-         return false;
-    });
-  
-});
-
-</script>
-
-</body>
+		
+		
+		
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/owl.carousel.min.js"></script>
+        <script src="../js/wow.js"></script>
+        <script src="../js/main.js"></script>
+    </body>
 </html>
