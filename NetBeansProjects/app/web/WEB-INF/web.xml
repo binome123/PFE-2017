@@ -12,6 +12,46 @@
         <servlet-name>verif</servlet-name>
         <servlet-class>control.verif</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>confirmer</servlet-name>
+        <servlet-class>control.confirmer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>supprimer</servlet-name>
+        <servlet-class>control.supprimer</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>destroy</servlet-name>
+        <servlet-class>control.destroy</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>saveoffre</servlet-name>
+        <servlet-class>control.saveoffre</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewServlet</servlet-name>
+        <servlet-class>control.NewServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ajout_doc</servlet-name>
+        <servlet-class>control.ajout_doc</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>gestioncv</servlet-name>
+        <servlet-class>control.gestioncv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ajoutcv</servlet-name>
+        <servlet-class>control.ajoutcv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ajout_comment</servlet-name>
+        <servlet-class>control.ajout_comment</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ajout_msg</servlet-name>
+        <servlet-class>control.ajout_msg</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>gestionuser</servlet-name>
         <url-pattern>/gestionuser</url-pattern>
@@ -23,6 +63,42 @@
     <servlet-mapping>
         <servlet-name>verif</servlet-name>
         <url-pattern>/verif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>confirmer</servlet-name>
+        <url-pattern>/confirmer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>supprimer</servlet-name>
+        <url-pattern>/supprimer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>destroy</servlet-name>
+        <url-pattern>/destroy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveoffre</servlet-name>
+        <url-pattern>/saveoffre</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajout_doc</servlet-name>
+        <url-pattern>/ajout_doc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>gestioncv</servlet-name>
+        <url-pattern>/gestioncv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajoutcv</servlet-name>
+        <url-pattern>/ajoutcv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajout_comment</servlet-name>
+        <url-pattern>/ajout_comment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ajout_msg</servlet-name>
+        <url-pattern>/ajout_msg</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

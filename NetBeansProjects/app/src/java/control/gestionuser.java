@@ -19,7 +19,7 @@ public class gestionuser {
         
      public static int verif(user u) throws SQLException{
      int v = 0;  
-     String sql="select * from user where username ='"+u.username+"'and password ='"+u.password+"'and etat = 1";
+     String sql="select * from user where username ='"+u.username+"'and password ='"+u.password+"'";
      ResultSet rs =Conx.getConnexion().createStatement().executeQuery(sql);
      if(rs.next()){
          if(rs.getString(5).equalsIgnoreCase("1")){
@@ -44,6 +44,7 @@ public class gestionuser {
                  +u.password+"','"
                  +u.designer+"','"
                  +u.partener+"')";
+         
          
          Conx.getConnexion().createStatement().executeUpdate(sql);
      }
